@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import categorizeRouter from './routes/categorize.js';
+import categorizePdfRouter from './routes/categorizePdf.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -22,6 +23,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/api/categorize', categorizeRouter);
+app.use('/api/categorize-pdf', categorizePdfRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
